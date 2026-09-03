@@ -78,19 +78,15 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
           
           <div className="flex flex-col gap-4 mb-10 pt-6 border-t border-border">
             {product.isQuoteOnly ? (
-              <Button size="lg" className="w-full bg-signal-blue hover:bg-signal-blue-dark text-surface text-lg h-14" asChild>
-                <Link href={`/request-quote?product=${product.slug}`}>
-                  <FileText className="mr-2 h-5 w-5" /> Request a Quote
-                </Link>
+              <Button size="lg" className="w-full bg-signal-blue hover:bg-signal-blue-dark text-surface text-lg h-14" render={<Link href={`/request-quote?product=${product.slug}`} />}>
+                <FileText className="mr-2 h-5 w-5" /> Request a Quote
               </Button>
             ) : (
               <AddToCartButton product={product} />
             )}
             
-            <Button size="lg" variant="outline" className="w-full h-12 border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10" asChild>
-              <Link href={`https://wa.me/917949095500?text=${whatsappMessage}`} target="_blank">
-                Ask on WhatsApp
-              </Link>
+            <Button size="lg" variant="outline" className="w-full h-12 border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10" render={<Link href={`https://wa.me/917949095500?text=${whatsappMessage}`} target="_blank" />}>
+              Ask on WhatsApp
             </Button>
           </div>
 

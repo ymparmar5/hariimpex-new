@@ -32,15 +32,11 @@ export function Navbar() {
           <Button variant="ghost" size="icon" className="md:hidden">
             <Search className="h-5 w-5 text-text-secondary" />
           </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="/account">
-              <User className="h-5 w-5 text-text-secondary" />
-            </Link>
+          <Button variant="ghost" size="icon" render={<Link href="/account" />}>
+            <User className="h-5 w-5 text-text-secondary" />
           </Button>
-          <Button variant="ghost" size="icon" className="relative" asChild>
-            <Link href="/cart">
-              <CartIcon />
-            </Link>
+          <Button variant="ghost" size="icon" className="relative" render={<Link href="/cart" />}>
+            <CartIcon />
           </Button>
           <MobileNavDrawer />
         </div>

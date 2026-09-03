@@ -26,12 +26,12 @@ export default async function ProductsPage() {
           <div className="sticky top-24">
             <h2 className="font-heading font-semibold text-lg mb-4 text-ink">Categories</h2>
             <div className="flex flex-col gap-2">
-              <Button variant="ghost" className="justify-start font-medium bg-surface-2" asChild>
-                <a href="/products">All Products</a>
+              <Button variant="ghost" className="justify-start font-medium bg-surface-2" render={<a href="/products" />}>
+                All Products
               </Button>
               {categories.map(c => (
-                <Button key={c.id} variant="ghost" className="justify-start text-text-secondary hover:text-ink" asChild>
-                  <a href={`/category/${c.slug}`}>{c.name}</a>
+                <Button key={c.id} variant="ghost" className="justify-start text-text-secondary hover:text-ink" render={<a href={`/category/${c.slug}`} />}>
+                  {c.name}
                 </Button>
               ))}
             </div>

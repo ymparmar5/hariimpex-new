@@ -6,11 +6,11 @@ import Link from 'next/link';
 export function MobileNavDrawer() {
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger render={
         <Button variant="ghost" size="icon" className="md:hidden">
           <Menu className="h-5 w-5 text-text-secondary" />
         </Button>
-      </SheetTrigger>
+      } />
       <SheetContent side="left" className="w-[300px] sm:w-[400px]">
         <SheetTitle className="text-left font-heading font-bold text-xl mb-6">Menu</SheetTitle>
         <nav className="flex flex-col gap-4">
@@ -31,11 +31,8 @@ export function MobileNavDrawer() {
             Contact
           </Link>
         </nav>
-        <div className="absolute bottom-6 left-6 right-6">
-           <Button asChild className="w-full bg-[#25D366] hover:bg-[#1ebd59] text-white">
-             <Link href="https://wa.me/917949095500" target="_blank" className="flex items-center justify-center w-full">
+           <Button className="w-full bg-[#25D366] hover:bg-[#1ebd59] text-white" render={<Link href="https://wa.me/917949095500" target="_blank" className="flex items-center justify-center w-full" />}>
                Chat on WhatsApp
-             </Link>
            </Button>
         </div>
       </SheetContent>

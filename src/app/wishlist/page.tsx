@@ -8,8 +8,8 @@ export default function WishlistPage() {
       <Heart className="h-16 w-16 text-text-muted mx-auto mb-6" />
       <h1 className="font-heading text-3xl font-bold text-ink mb-4">Your Wishlist is Empty</h1>
       <p className="text-text-secondary mb-8 max-w-md mx-auto">You haven't saved any products yet. Start browsing to add items to your wishlist for quick access later.</p>
-      <Button asChild size="lg" className="bg-signal-blue text-surface hover:bg-signal-blue-dark">
-        <Link href="/products">Browse Products</Link>
+      <Button size="lg" className="bg-signal-blue text-surface hover:bg-signal-blue-dark" render={<Link href="/products" />}>
+        Browse Products
       </Button>
     </div>
   );

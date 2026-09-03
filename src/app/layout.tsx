@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+  import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,9 +18,22 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0f172a", // ink
+};
+
 export const metadata: Metadata = {
-  title: "Hari Impex - LED Display & Signage | Cooling Components",
-  description: "Manufacturer and Supplier of LED video walls, digital standees, and precision liquid-cooling components in Surat, India.",
+  title: "Hari Impex | Digital Display & Precision Cooling Manufacturing",
+  description: "Surat's leading B2B manufacturer of high-impact LED video walls, digital standees, and industrial-grade precision cooling components like water blocks and radiators.",
+  keywords: ["LED Video Wall", "Digital Standee", "Water Block", "Industrial Radiator", "Custom Cooling Solutions", "B2B Manufacturer Surat"],
+  openGraph: {
+    title: "Hari Impex",
+    description: "Digital Display & Precision Cooling Manufacturing",
+    url: "https://hariimpex.in",
+    siteName: "Hari Impex",
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 import { Navbar } from "@/components/layout/Navbar";

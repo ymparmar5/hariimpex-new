@@ -31,15 +31,11 @@ export default async function Home() {
             Surat's leading manufacturer of high-impact LED video walls and industrial-grade liquid cooling components.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-surface w-full sm:w-auto" asChild>
-              <Link href="/display-and-signage">
-                Display & Signage <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-surface w-full sm:w-auto" render={<Link href="/display-and-signage" />}>
+              Display & Signage <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" className="bg-copper hover:bg-copper-dark text-surface w-full sm:w-auto" asChild>
-              <Link href="/cooling-components">
-                Cooling Components <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button size="lg" className="bg-copper hover:bg-copper-dark text-surface w-full sm:w-auto" render={<Link href="/cooling-components" />}>
+              Cooling Components <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -93,8 +89,8 @@ export default async function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-ink">Popular Products</h2>
-            <Button variant="link" className="text-signal-blue" asChild>
-              <Link href="/products">View All <ArrowRight className="ml-1 h-4 w-4" /></Link>
+            <Button variant="link" className="text-signal-blue" render={<Link href="/products" />}>
+              View All <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -114,11 +110,11 @@ export default async function Home() {
             Our engineering team can manufacture custom LED structural profiles and precision cooling blocks to your exact specifications.
           </p>
           <div className="flex justify-center gap-4">
-            <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-surface" asChild>
-              <Link href="/request-quote">Request a Quote</Link>
+            <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-surface" render={<Link href="/request-quote" />}>
+              Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-border text-surface hover:bg-surface hover:text-ink" asChild>
-              <Link href="/contact">Contact Sales</Link>
+            <Button size="lg" variant="outline" className="border-border text-surface hover:bg-surface hover:text-ink" render={<Link href="/contact" />}>
+              Contact Sales
             </Button>
           </div>
         </div>

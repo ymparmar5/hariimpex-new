@@ -26,8 +26,8 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mb-4 text-sm text-text-secondary line-clamp-2 flex-1">{product.shortDescription}</p>
         <div className="mt-auto flex items-center justify-between">
           <PriceTag pricing={product.pricing} />
-          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full group-hover:bg-signal-blue group-hover:text-surface transition-colors" asChild>
-             <div><ArrowRight className="h-4 w-4" /></div>
+          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full group-hover:bg-signal-blue group-hover:text-surface transition-colors" render={<div />}>
+            <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
       </div>
