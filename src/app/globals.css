@@ -5,19 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-ink: #0A0A0B;
-  --color-surface: #121214;
-  --color-surface-2: #1C1C1F;
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-text-muted: #64748B;
-  --color-signal-blue: #00E5FF;
-  --color-signal-blue-dark: #00B4D8;
-  --color-copper: #FF6D00;
-  --color-copper-dark: #E65100;
-  --color-amber-glow: #FFB300;
-  --color-signal-red: #FF3D00;
-  --color-success: #00E676;
+  --color-ink: #0B0F14;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F4F5F7;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #52606D;
+  --color-text-muted: #8A94A6;
+  --color-signal-blue: #1E6FEB;
+  --color-signal-blue-dark: #185FC6;
+  --color-copper: #C9711B;
+  --color-copper-dark: #A85B12;
+  --color-amber-glow: #F5A623;
+  --color-signal-red: #E23B3B;
+  --color-success: #1E9E63;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -139,6 +139,5 @@
   }
   html {
     @apply font-sans;
-    color-scheme: dark;
   }
 }
