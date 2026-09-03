@@ -65,8 +65,8 @@ export default function ContactPage() {
              <div className="bg-[#25D366]/10 p-6 rounded-xl border border-[#25D366]/20">
                 <h4 className="font-semibold text-[#128C7E] mb-2 flex items-center gap-2">WhatsApp Support</h4>
                 <p className="text-sm text-text-secondary mb-4">Chat with our sales team directly.</p>
-                <Button className="w-full bg-[#25D366] hover:bg-[#1ebd59] text-white" asChild>
-                  <Link href="https://wa.me/917949095500" target="_blank">Chat Now</Link>
+                <Button className="w-full bg-[#25D366] hover:bg-[#1ebd59] text-white" render={<Link href="https://wa.me/917949095500" target="_blank" />}>
+                  Chat Now
                 </Button>
              </div>
           </div>

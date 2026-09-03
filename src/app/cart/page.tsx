@@ -22,8 +22,8 @@ export default function CartPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
         <h1 className="font-heading text-3xl font-bold text-ink mb-4">Your Cart is Empty</h1>
         <p className="text-text-secondary mb-8">Looks like you haven't added any products to your cart yet.</p>
-        <Button asChild className="bg-signal-blue text-surface hover:bg-signal-blue-dark">
-          <Link href="/products">Browse Products</Link>
+        <Button render={<Link href="/products" />} className="bg-signal-blue text-surface hover:bg-signal-blue-dark">
+          Browse Products
         </Button>
       </div>
     );
@@ -83,8 +83,8 @@ export default function CartPage() {
               <span>Total Estimated</span>
               <span className="font-mono">₹{subtotal.toLocaleString('en-IN')}</span>
             </div>
-            <Button size="lg" className="w-full bg-signal-blue text-surface hover:bg-signal-blue-dark h-12" asChild>
-              <Link href="/checkout">Proceed to Checkout <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Button size="lg" className="w-full bg-signal-blue text-surface hover:bg-signal-blue-dark h-12" render={<Link href="/checkout" />}>
+              Proceed to Checkout <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <p className="text-xs text-text-muted mt-4 text-center">B2B GST invoices available at checkout.</p>
           </div>

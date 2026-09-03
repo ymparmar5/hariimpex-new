@@ -31,6 +31,7 @@ export function MobileNavDrawer() {
             Contact
           </Link>
         </nav>
+        <div className="absolute bottom-6 left-6 right-6">
            <Button className="w-full bg-[#25D366] hover:bg-[#1ebd59] text-white" render={<Link href="https://wa.me/917949095500" target="_blank" className="flex items-center justify-center w-full" />}>
                Chat on WhatsApp
            </Button>

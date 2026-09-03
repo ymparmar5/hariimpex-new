@@ -14,10 +14,8 @@ export default function AccountPage() {
           <Button variant="ghost" className="justify-start text-text-secondary hover:text-ink">
             <Package className="mr-2 h-4 w-4" /> Orders & Quotes
           </Button>
-          <Button variant="ghost" className="justify-start text-text-secondary hover:text-ink" asChild>
-            <Link href="/wishlist">
+          <Button variant="ghost" className="justify-start text-text-secondary hover:text-ink" render={<Link href="/wishlist" />}>
               <Heart className="mr-2 h-4 w-4" /> Saved Items
-            </Link>
           </Button>
           <Button variant="ghost" className="justify-start text-destructive hover:text-destructive hover:bg-destructive/10 mt-8">
             <LogOut className="mr-2 h-4 w-4" /> Sign Out

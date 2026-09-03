@@ -69,8 +69,8 @@ export default function CheckoutPage() {
     return (
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
         <h1 className="font-heading text-3xl font-bold text-ink mb-4">Your Cart is Empty</h1>
-        <Button asChild className="bg-signal-blue text-surface hover:bg-signal-blue-dark">
-          <Link href="/products">Browse Products</Link>
+        <Button render={<Link href="/products" />} className="bg-signal-blue text-surface hover:bg-signal-blue-dark">
+          Browse Products
         </Button>
       </div>
     );
