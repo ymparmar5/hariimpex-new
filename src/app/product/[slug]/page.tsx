@@ -18,7 +18,7 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
   }
 
   const relatedProducts = (await getProductsByCategory(product.categorySlug))
-    .filter(p => p.id !== product.id)
+    .filter((p: import('@/lib/catalog').Product) => p.id !== product.id)
     .slice(0, 4);
 
   const whatsappMessage = encodeURIComponent(`Hi Hari Impex, I would like to inquire about: ${product.name}`);
@@ -85,7 +85,7 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
               <AddToCartButton product={product} />
             )}
             
-            <Button size="lg" variant="outline" className="w-full h-12 border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10" render={<Link href={`https://wa.me/917949095500?text=${whatsappMessage}`} target="_blank" />}>
+            <Button size="lg" variant="outline" className="w-full h-12 border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10" render={<Link href={`https://wa.me/919765618860?text=${whatsappMessage}`} target="_blank" />}>
               Ask on WhatsApp
             </Button>
           </div>
@@ -99,7 +99,7 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
                   {product.specs && Object.entries(product.specs).map(([key, value], index) => (
                     <tr key={key} className={index % 2 === 0 ? 'bg-surface-2/50' : 'bg-surface'}>
                       <th className="py-3 px-4 font-semibold text-ink border-r border-border w-1/3">{key}</th>
-                      <td className="py-3 px-4 text-text-secondary font-mono">{value}</td>
+                      <td className="py-3 px-4 text-text-secondary font-mono">{String(value)}</td>
                     </tr>
                   ))}
                   <tr className="bg-surface">
@@ -120,7 +120,7 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
         <div className="mt-20 pt-16 border-t border-border">
           <h2 className="font-heading text-2xl font-bold text-ink mb-8">Related Products</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {relatedProducts.map(p => (
+            {relatedProducts.map((p: import('@/lib/catalog').Product) => (
               <ProductCard key={p.id} product={p} />
             ))}
           </div>

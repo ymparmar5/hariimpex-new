@@ -38,7 +38,7 @@ export default async function CategoryPage(props: { params: Promise<{ slug: stri
 
       {products.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map(p => (
+          {products.map((p: import('@/lib/catalog').Product) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>

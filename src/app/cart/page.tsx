@@ -43,7 +43,7 @@ export default function CartPage() {
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="font-heading font-semibold text-lg text-ink line-clamp-1">{item.product.name}</h3>
-                    <p className="text-sm text-text-secondary">{item.product.division === 'display-signage' ? 'Display & Signage' : 'Cooling Components'}</p>
+                    <p className="text-sm text-text-secondary">{item.product.division === 'display' ? 'Display & Signage' : 'Cooling Components'}</p>
                   </div>
                   <div className="flex items-center gap-4 mt-4 sm:mt-0">
                     <div className="flex items-center border border-border rounded-md px-2 bg-surface h-9">

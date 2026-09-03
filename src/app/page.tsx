@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 export default async function Home() {
   const categories = await getCategories();
   const allProducts = await getAllProducts();
-  const popularProducts = allProducts.filter(p => !p.isQuoteOnly).slice(0, 4);
+  const popularProducts = allProducts.filter((p: import('@/lib/catalog').Product) => !p.isQuoteOnly).slice(0, 4);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -77,7 +77,7 @@ export default async function Home() {
             <p className="text-text-secondary max-w-2xl mx-auto">Explore our range of purpose-built LED displays and precision-machined cooling components.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map(category => (
+            {categories.map((category: import('@/lib/catalog').Category) => (
               <CategoryTile key={category.id} category={category} />
             ))}
           </div>
@@ -94,7 +94,7 @@ export default async function Home() {
             </Button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {popularProducts.map(product => (
+            {popularProducts.map((product: import('@/lib/catalog').Product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -113,7 +113,7 @@ export default async function Home() {
             <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-surface" render={<Link href="/request-quote" />}>
               Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-border text-surface hover:bg-surface hover:text-ink" render={<Link href="/contact" />}>
+            <Button size="lg" variant="outline" className="border-surface/50 bg-transparent text-surface hover:bg-surface hover:text-ink" render={<Link href="/contact" />}>
               Contact Sales
             </Button>
           </div>

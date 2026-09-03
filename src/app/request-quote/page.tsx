@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -24,7 +24,7 @@ const quoteSchema = z.object({
 
 type QuoteFormValues = z.infer<typeof quoteSchema>;
 
-export default function RequestQuotePage() {
+function RequestQuoteForm() {
   const isMounted = useMounted();
   const searchParams = useSearchParams();
   const productSlug = searchParams?.get('product') || '';
@@ -126,5 +126,13 @@ export default function RequestQuotePage() {
         </div>
       </form>
     </div>
+  );
+}
+
+export default function RequestQuotePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <RequestQuoteForm />
+    </Suspense>
   );
 }

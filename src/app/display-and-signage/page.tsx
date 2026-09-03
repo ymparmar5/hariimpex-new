@@ -5,9 +5,9 @@ import { CategoryTile } from '@/components/catalog/CategoryTile';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator, BreadcrumbPage } from '@/components/ui/breadcrumb';
 
 export default async function DisplayAndSignagePage() {
-  const products = await getProductsByDivision('display-signage');
+  const products = await getProductsByDivision('display');
   const allCategories = await getCategories();
-  const divisionCategories = allCategories.filter(c => c.division === 'display-signage');
+  const divisionCategories = allCategories.filter((c: import('@/lib/catalog').Category) => c.division === 'display');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -42,7 +42,7 @@ export default async function DisplayAndSignagePage() {
         <div className="mb-16">
           <h2 className="font-heading text-2xl font-bold text-ink mb-6">Categories</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {divisionCategories.map(c => (
+            {divisionCategories.map((c: import('@/lib/catalog').Category) => (
               <CategoryTile key={c.id} category={c} />
             ))}
           </div>
@@ -51,7 +51,7 @@ export default async function DisplayAndSignagePage() {
         <div>
           <h2 className="font-heading text-2xl font-bold text-ink mb-6">Featured Products</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {products.map(p => (
+            {products.map((p: import('@/lib/catalog').Product) => (
               <ProductCard key={p.id} product={p} />
             ))}
           </div>
