@@ -5,6 +5,8 @@ import { getCategories, getAllProducts } from "@/lib/catalog";
 import { CategoryTile } from "@/components/catalog/CategoryTile";
 import { ProductCard } from "@/components/catalog/ProductCard";
 import { Button } from "@/components/ui/button";
+import { HeroCarousel } from "@/components/home/HeroCarousel";
+import { TestimonialSlider } from "@/components/home/TestimonialSlider";
 
 export default async function Home() {
   const categories = await getCategories();
@@ -13,56 +15,32 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[600px] w-full bg-ink overflow-hidden flex items-center justify-center">
-        <Image 
-          src="/images/hero-banner.jpg" 
-          alt="Hari Impex Industrial Manufacturing"
-          fill
-          className="object-cover opacity-40"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-surface mb-6 max-w-4xl mx-auto leading-tight">
-            Precision Engineered <span className="text-signal-blue">Display</span> & <span className="text-copper">Cooling</span> Solutions
-          </h1>
-          <p className="text-lg md:text-xl text-surface-2/80 max-w-2xl mx-auto mb-10">
-            Surat's leading manufacturer of high-impact LED video walls and industrial-grade liquid cooling components.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-surface w-full sm:w-auto" render={<Link href="/display-and-signage" />}>
-              Display & Signage <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button size="lg" className="bg-copper hover:bg-copper-dark text-surface w-full sm:w-auto" render={<Link href="/cooling-components" />}>
-              Cooling Components <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* Hero Carousel Section */}
+      <HeroCarousel />
 
       {/* Trust Strip */}
-      <section className="border-b border-border bg-surface-2 py-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <ShieldCheck className="h-8 w-8 text-signal-blue" />
-              <h3 className="font-semibold text-ink">GST Registered</h3>
+      <section className="border-b border-white/5 bg-ink py-10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/30 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors">
+              <ShieldCheck className="h-10 w-10 text-signal-blue filter drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]" />
+              <h3 className="font-semibold text-surface">GST Registered</h3>
               <p className="text-sm text-text-secondary">Verified B2B Supplier</p>
             </div>
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <BadgeCheck className="h-8 w-8 text-copper" />
-              <h3 className="font-semibold text-ink">Established 2019</h3>
+            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/30 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors">
+              <BadgeCheck className="h-10 w-10 text-copper filter drop-shadow-[0_0_8px_rgba(255,109,0,0.5)]" />
+              <h3 className="font-semibold text-surface">Established 2019</h3>
               <p className="text-sm text-text-secondary">Years of manufacturing excellence</p>
             </div>
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <Wrench className="h-8 w-8 text-signal-blue" />
-              <h3 className="font-semibold text-ink">In-House Manufacturing</h3>
+            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/30 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors">
+              <Wrench className="h-10 w-10 text-signal-blue filter drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]" />
+              <h3 className="font-semibold text-surface">In-House Manufacturing</h3>
               <p className="text-sm text-text-secondary">10-person engineering team</p>
             </div>
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <CheckCircle2 className="h-8 w-8 text-success" />
-              <h3 className="font-semibold text-ink">100% Quality Tested</h3>
+            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/30 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors">
+              <CheckCircle2 className="h-10 w-10 text-success filter drop-shadow-[0_0_8px_rgba(0,230,118,0.5)]" />
+              <h3 className="font-semibold text-surface">100% Quality Tested</h3>
               <p className="text-sm text-text-secondary">Every unit tested before dispatch</p>
             </div>
           </div>
@@ -102,23 +80,28 @@ export default async function Home() {
       </section>
 
       {/* Enquiry CTA */}
-      <section className="py-20 bg-ink relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('/images/hero-banner.jpg')] bg-cover bg-center" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-surface mb-6">Need a Custom B2B Order?</h2>
-          <p className="text-surface-2/80 max-w-2xl mx-auto mb-8 text-lg">
+      <section className="py-24 bg-surface relative overflow-hidden">
+        <div className="absolute inset-0 bg-signal-blue/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,255,0.1)_0%,transparent_50%)]" />
+        
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10 text-center bg-surface-2/40 backdrop-blur-xl border border-white/10 rounded-3xl p-12 shadow-2xl">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-surface mb-6">Ready for a Custom B2B Order?</h2>
+          <p className="text-text-secondary max-w-2xl mx-auto mb-10 text-xl">
             Our engineering team can manufacture custom LED structural profiles and precision cooling blocks to your exact specifications.
           </p>
-          <div className="flex justify-center gap-4">
-            <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-surface" render={<Link href="/request-quote" />}>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-ink font-bold h-14 px-10 rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.2)]" render={<Link href="/request-quote" />}>
               Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-surface/50 bg-transparent text-surface hover:bg-surface hover:text-ink" render={<Link href="/contact" />}>
+            <Button size="lg" variant="outline" className="border-white/20 bg-transparent text-surface hover:bg-white/10 h-14 px-10 rounded-xl" render={<Link href="/contact" />}>
               Contact Sales
             </Button>
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <TestimonialSlider />
     </div>
   );
 }

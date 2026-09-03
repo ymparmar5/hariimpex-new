@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Eye, CheckCircle } from 'lucide-react';
 import api from '@/lib/api';
+import { toast } from 'sonner';
 
 export default function AdminOrdersPage() {
   const [orders, setOrders] = useState<any[]>([]);
@@ -22,6 +23,17 @@ export default function AdminOrdersPage() {
     };
     fetchOrders();
   }, []);
+
+  const handleCompleteOrder = async (id: string) => {
+    try {
+      await api.put(`/orders/${id}/status`, { status: 'completed' });
+      setOrders(orders.map(o => (o._id === id || o.id === id ? { ...o, status: 'completed' } : o)));
+      toast.success('Order marked as completed');
+    } catch (error) {
+      console.error('Failed to update status', error);
+      toast.error('Failed to update order status');
+    }
+  };
 
   if (loading) return <div>Loading orders...</div>;
 
@@ -71,7 +83,7 @@ export default function AdminOrdersPage() {
                     <Eye className="h-4 w-4" />
                   </Button>
                   {order.status !== 'completed' && (
-                    <Button variant="ghost" size="icon" className="text-success hover:text-success-dark hover:bg-success/10">
+                    <Button variant="ghost" size="icon" onClick={() => handleCompleteOrder(order._id || order.id)} className="text-success hover:text-success-dark hover:bg-success/10">
                       <CheckCircle className="h-4 w-4" />
                     </Button>
                   )}

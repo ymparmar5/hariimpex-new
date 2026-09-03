@@ -5,24 +5,57 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ArrowLeft, Upload, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import api from '@/lib/api';
+import { toast } from 'sonner';
 
 export default function NewProductPage() {
   const [loading, setLoading] = useState(false);
   const [imageFile, setImageFile] = useState<File | null>(null);
 
+  const router = useRouter();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     
-    // In a real implementation:
-    // 1. Upload image to Multer API (http://localhost:5000/api/upload)
-    // 2. Get returned image path
-    // 3. Post full product data to http://localhost:5000/api/products
-    
-    setTimeout(() => {
+    try {
+      const formElement = e.target as HTMLFormElement;
+      let imageUrl = '';
+
+      if (imageFile) {
+        const formData = new FormData();
+        formData.append('image', imageFile);
+        const uploadRes = await api.post('/upload', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        });
+        imageUrl = uploadRes.data;
+      }
+
+      const productData = {
+        name: (formElement.elements.namedItem('name') as HTMLInputElement).value,
+        slug: (formElement.elements.namedItem('slug') as HTMLInputElement).value,
+        categorySlug: (formElement.elements.namedItem('category') as HTMLInputElement).value,
+        division: (formElement.elements.namedItem('category') as HTMLInputElement).value.includes('led') || (formElement.elements.namedItem('category') as HTMLInputElement).value.includes('display') || (formElement.elements.namedItem('category') as HTMLInputElement).value.includes('standee') || (formElement.elements.namedItem('category') as HTMLInputElement).value.includes('board') ? 'display' : 'cooling',
+        isQuoteOnly: (formElement.elements.namedItem('isQuoteOnly') as HTMLInputElement).checked,
+        shortDescription: (formElement.elements.namedItem('shortDescription') as HTMLInputElement).value,
+        images: imageUrl ? [imageUrl] : [],
+        pricing: {
+          type: (formElement.elements.namedItem('unit') as HTMLInputElement).value || 'unit',
+          amount: Number((formElement.elements.namedItem('price') as HTMLInputElement).value) || 0,
+          currency: 'INR'
+        }
+      };
+
+      await api.post('/products', productData);
+      toast.success('Product created successfully!');
+      router.push('/admin/products');
+    } catch (error: any) {
+      console.error('Error creating product:', error);
+      toast.error(error.response?.data?.message || 'Failed to create product');
+    } finally {
       setLoading(false);
-      alert('Product creation simulated! Needs backend running to save.');
-    }, 1500);
+    }
   };
 
   return (

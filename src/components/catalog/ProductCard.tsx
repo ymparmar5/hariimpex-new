@@ -7,26 +7,27 @@ import { ArrowRight } from 'lucide-react';
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <Link href={`/product/${product.slug}`} className="group flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all hover:shadow-[0_4px_12px_rgba(15,23,42,0.08)]">
-      <div className="relative aspect-square w-full overflow-hidden bg-surface-2">
+    <Link href={`/product/${product.slug}`} className="group flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-surface-2/30 backdrop-blur-md transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,229,255,0.15)] hover:-translate-y-1 hover:border-signal-blue/30 relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      <div className="relative aspect-square w-full overflow-hidden bg-black/20">
         <Image
           src={product.images[0] || '/images/products/placeholder.jpg'}
           alt={product.name}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         {product.isQuoteOnly && (
-          <div className="absolute top-2 right-2 rounded-sm bg-ink/80 px-2 py-1 text-[10px] font-semibold text-surface uppercase tracking-wider backdrop-blur">
+          <div className="absolute top-3 right-3 rounded-full bg-copper/90 px-3 py-1 text-[10px] font-bold text-white uppercase tracking-wider backdrop-blur shadow-[0_0_10px_rgba(255,109,0,0.5)]">
             B2B Custom
           </div>
         )}
       </div>
-      <div className="flex flex-1 flex-col p-4">
-        <h3 className="mb-1 font-heading text-lg font-semibold text-ink line-clamp-1">{product.name}</h3>
-        <p className="mb-4 text-sm text-text-secondary line-clamp-2 flex-1">{product.shortDescription}</p>
-        <div className="mt-auto flex items-center justify-between">
+      <div className="flex flex-1 flex-col p-5 relative z-10">
+        <h3 className="mb-2 font-heading text-lg font-bold text-white line-clamp-1 group-hover:text-signal-blue transition-colors">{product.name}</h3>
+        <p className="mb-6 text-sm text-text-secondary line-clamp-2 flex-1">{product.shortDescription}</p>
+        <div className="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
           <PriceTag pricing={product.pricing} />
-          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full group-hover:bg-signal-blue group-hover:text-surface transition-colors" render={<div />}>
+          <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full bg-white/5 group-hover:bg-signal-blue group-hover:text-ink group-hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] transition-all duration-300" render={<div />}>
             <ArrowRight className="h-4 w-4" />
           </Button>
         </div>

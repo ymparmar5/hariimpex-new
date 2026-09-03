@@ -5,6 +5,7 @@ import { Plus, Edit, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 
 import api from '@/lib/api';
+import { toast } from 'sonner';
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState([]);
@@ -23,6 +24,18 @@ export default function AdminProductsPage() {
     };
     fetchProducts();
   }, []);
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this product?')) return;
+    try {
+      await api.delete(`/products/${id}`);
+      setProducts(products.filter((p: any) => p._id !== id && p.id !== id));
+      toast.success('Product deleted successfully');
+    } catch (error) {
+      console.error('Failed to delete product', error);
+      toast.error('Failed to delete product');
+    }
+  };
 
   if (loading) return <div>Loading products...</div>;
 
@@ -63,7 +76,7 @@ export default function AdminProductsPage() {
                   <Button variant="ghost" size="icon" className="text-signal-blue hover:text-signal-blue-dark hover:bg-signal-blue/10">
                     <Edit className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive hover:bg-destructive/10">
+                  <Button variant="ghost" size="icon" onClick={() => handleDelete(product._id || product.id)} className="text-destructive hover:text-destructive hover:bg-destructive/10">
                     <Trash2 className="h-4 w-4" />
                   </Button>
                 </td>

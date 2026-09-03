@@ -5,6 +5,7 @@ import { Plus, Edit, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 
 import api from '@/lib/api';
+import { toast } from 'sonner';
 
 export default function AdminCategoriesPage() {
   const [categories, setCategories] = useState([]);
@@ -23,6 +24,18 @@ export default function AdminCategoriesPage() {
     };
     fetchCategories();
   }, []);
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this category?')) return;
+    try {
+      await api.delete(`/categories/${id}`);
+      setCategories(categories.filter((c: any) => c._id !== id && c.id !== id));
+      toast.success('Category deleted successfully');
+    } catch (error) {
+      console.error('Failed to delete category', error);
+      toast.error('Failed to delete category');
+    }
+  };
 
   if (loading) return <div>Loading categories...</div>;
 
@@ -59,7 +72,7 @@ export default function AdminCategoriesPage() {
                   <Button variant="ghost" size="icon" className="text-signal-blue hover:text-signal-blue-dark hover:bg-signal-blue/10">
                     <Edit className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive hover:bg-destructive/10">
+                  <Button variant="ghost" size="icon" onClick={() => handleDelete(category._id || category.id)} className="text-destructive hover:text-destructive hover:bg-destructive/10">
                     <Trash2 className="h-4 w-4" />
                   </Button>
                 </td>
