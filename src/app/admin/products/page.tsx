@@ -4,17 +4,24 @@ import { Button } from '@/components/ui/button';
 import { Plus, Edit, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 
+import api from '@/lib/api';
+
 export default function AdminProductsPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // In real implementation, fetch from http://localhost:5000/api/products
-    // For now, load from static catalog just to show the UI works until DB is populated
-    import('@/lib/catalog').then(module => {
-      setProducts(module.PRODUCTS);
-      setLoading(false);
-    });
+    const fetchProducts = async () => {
+      try {
+        const { data } = await api.get('/products');
+        setProducts(data);
+      } catch (error) {
+        console.error('Failed to fetch products', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
   }, []);
 
   if (loading) return <div>Loading products...</div>;

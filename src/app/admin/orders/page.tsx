@@ -1,14 +1,29 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Eye, CheckCircle } from 'lucide-react';
+import api from '@/lib/api';
 
 export default function AdminOrdersPage() {
-  // Mock data for orders since we don't have a DB hooked up to the frontend yet
-  const orders = [
-    { id: 'ORD-1234', type: 'order', customer: 'Acme Corp', amount: 45000, status: 'pending', date: '2026-09-03' },
-    { id: 'QT-9876', type: 'quote', customer: 'TechVision Ltd', amount: null, status: 'processing', date: '2026-09-02' },
-    { id: 'ORD-1230', type: 'order', customer: 'John Doe', amount: 1250, status: 'completed', date: '2026-09-01' },
-  ];
+  const [orders, setOrders] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        // Uses the interceptor for JWT automatically
+        const { data } = await api.get('/orders');
+        setOrders(data);
+      } catch (error) {
+        console.error('Failed to fetch orders', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchOrders();
+  }, []);
+
+  if (loading) return <div>Loading orders...</div>;
 
   return (
     <div>
@@ -32,15 +47,15 @@ export default function AdminOrdersPage() {
           <tbody className="divide-y divide-border">
             {orders.map((order: any) => (
               <tr key={order.id} className="hover:bg-surface-2/50 transition-colors">
-                <td className="px-6 py-4 font-medium text-ink">{order.id}</td>
+                <td className="px-6 py-4 font-medium text-ink">{order._id.substring(0, 8)}</td>
                 <td className="px-6 py-4">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium uppercase tracking-wider ${order.type === 'quote' ? 'bg-copper/10 text-copper-dark' : 'bg-signal-blue/10 text-signal-blue-dark'}`}>
                     {order.type}
                   </span>
                 </td>
-                <td className="px-6 py-4 text-text-secondary">{order.customer}</td>
+                <td className="px-6 py-4 text-text-secondary">{order.customerInfo?.firstName || 'Guest'}</td>
                 <td className="px-6 py-4 text-text-secondary">
-                  {order.amount ? `₹${order.amount.toLocaleString()}` : '-'}
+                  {order.totalAmount ? `₹${order.totalAmount.toLocaleString()}` : '-'}
                 </td>
                 <td className="px-6 py-4">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium capitalize 
@@ -50,7 +65,7 @@ export default function AdminOrdersPage() {
                     {order.status}
                   </span>
                 </td>
-                <td className="px-6 py-4 text-text-secondary">{order.date}</td>
+                <td className="px-6 py-4 text-text-secondary">{new Date(order.createdAt).toLocaleDateString()}</td>
                 <td className="px-6 py-4 text-right space-x-2">
                   <Button variant="ghost" size="icon" className="text-signal-blue hover:text-signal-blue-dark hover:bg-signal-blue/10">
                     <Eye className="h-4 w-4" />

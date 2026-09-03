@@ -30,8 +30,9 @@ export function Footer() {
         <div>
           <h4 className="font-semibold text-surface mb-4">Contact</h4>
           <address className="text-sm not-italic space-y-2">
-            <p>Ground Floor, Shop No. G-76, Raj World, Palanpur Gam, Surat – 395009, Gujarat</p>
-            <p>Phone: 07949095500, 07971549319</p>
+            <p>104/C Block, Orchid Green, LP Savani Rd, Palanpur, Surat, 395009, Gujarat, India</p>
+            <p>Phone: +91 9765618860</p>
+            <p>Email: hariimpexonline@gmail.com</p>
           </address>
         </div>
       </div>

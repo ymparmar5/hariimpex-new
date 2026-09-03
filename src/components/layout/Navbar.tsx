@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MobileNavDrawer } from './MobileNavDrawer';
@@ -10,7 +11,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
         <div className="flex gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="font-heading font-bold text-xl tracking-tight text-ink">Hari Impex</span>
+            <Image src="/logo.png" alt="Hari Impex Logo" width={150} height={40} className="object-contain max-h-10 w-auto" priority />
           </Link>
           <nav className="hidden md:flex gap-6 items-center">
             <Link href="/display-and-signage" className="text-sm font-medium text-text-secondary hover:text-signal-blue transition-colors">

@@ -16,37 +16,37 @@ export default async function ProductsPage() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/products">All Products</BreadcrumbLink>
+            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      
-      <div className="flex flex-col md:flex-row gap-8">
-        <aside className="w-full md:w-64 flex-shrink-0">
+
+      <div className="flex flex-col lg:flex-row gap-12">
+        <aside className="w-full lg:w-64 flex-shrink-0">
           <div className="sticky top-24">
             <h2 className="font-heading font-semibold text-lg mb-4 text-ink">Categories</h2>
             <div className="flex flex-col gap-2">
               <Button variant="ghost" className="justify-start font-medium bg-surface-2" render={<a href="/products" />}>
                 All Products
               </Button>
-              {categories.map(c => (
-                <Button key={c.id} variant="ghost" className="justify-start text-text-secondary hover:text-ink" render={<a href={`/category/${c.slug}`} />}>
+              {categories.map((c: any) => (
+                <Button key={c._id || c.id} variant="ghost" className="justify-start text-text-secondary hover:text-ink" render={<a href={`/category/${c.slug}`} />}>
                   {c.name}
                 </Button>
               ))}
             </div>
           </div>
         </aside>
-        
+
         <main className="flex-1">
-          <div className="mb-6 flex items-center justify-between">
-            <h1 className="font-heading text-2xl md:text-3xl font-bold text-ink">All Products</h1>
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="font-heading font-bold text-3xl text-ink">All Products</h1>
             <span className="text-sm text-text-secondary">{products.length} results</span>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map(p => (
-              <ProductCard key={p.id} product={p} />
+            {products.map((p: any) => (
+              <ProductCard key={p._id || p.id} product={p} />
             ))}
           </div>
         </main>

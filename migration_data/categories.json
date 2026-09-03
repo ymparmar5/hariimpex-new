@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Cooling Solutions",
+    "slug": "cooling-solutions",
+    "division": "cooling",
+    "image": "/uploads/fan-plus-grill-2.jpeg",
+    "description": "Complete range of cooling components including fans, water blocks, heatsinks, condensers and peltier modules."
+  },
+  {
+    "name": "Digital Displays",
+    "slug": "digital-displays",
+    "division": "display",
+    "image": "/uploads/hero1.jpg",
+    "description": "Professional digital signage solutions including standee displays and LED board profiles."
+  },
+  {
+    "name": "Cooling Accessories",
+    "slug": "cooling-accessories",
+    "parent": "cooling-solutions",
+    "division": "cooling",
+    "image": "/uploads/fan-plus-grill-2.jpeg"
+  },
+  {
+    "name": "Water Blocks",
+    "slug": "water-blocks",
+    "parent": "cooling-solutions",
+    "division": "cooling",
+    "image": "/uploads/IMG-20220419-WA0015.jpg"
+  },
+  {
+    "name": "Condensers",
+    "slug": "condensers",
+    "parent": "cooling-solutions",
+    "division": "cooling",
+    "image": "/uploads/16-16-1.png"
+  },
+  {
+    "name": "Aquarium Chillers",
+    "slug": "aquarium-chillers",
+    "parent": "cooling-solutions",
+    "division": "cooling",
+    "image": "/uploads/IMG-20220419-WA0015.jpg"
+  },
+  {
+    "name": "Standee Displays",
+    "slug": "standee-displays",
+    "parent": "digital-displays",
+    "division": "display",
+    "image": "/uploads/hero1.jpg"
+  },
+  {
+    "name": "LED Board Profiles",
+    "slug": "led-board-profiles",
+    "parent": "digital-displays",
+    "division": "display",
+    "image": "/uploads/led-display.jpg"
+  }
+]

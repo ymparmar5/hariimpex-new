@@ -24,7 +24,7 @@ if (!fs.existsSync(uploadDir)) {
 }
 
 // Database Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/hariimpex')
+mongoose.connect(process.env.MONGO_URL || process.env.MONGO_URI || 'mongodb://localhost:27017/hariimpex')
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 

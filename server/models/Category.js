@@ -9,7 +9,8 @@ const categorySchema = new mongoose.Schema({
     type: String, 
     enum: ['display', 'cooling'],
     required: true
-  }
+  },
+  parentCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: false }
 });
 
 module.exports = mongoose.model('Category', categorySchema);

@@ -96,7 +96,7 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
             <div className="border border-border rounded-lg overflow-hidden bg-surface">
               <table className="w-full text-sm text-left">
                 <tbody>
-                  {Object.entries(product.specs).map(([key, value], index) => (
+                  {product.specs && Object.entries(product.specs).map(([key, value], index) => (
                     <tr key={key} className={index % 2 === 0 ? 'bg-surface-2/50' : 'bg-surface'}>
                       <th className="py-3 px-4 font-semibold text-ink border-r border-border w-1/3">{key}</th>
                       <td className="py-3 px-4 text-text-secondary font-mono">{value}</td>

@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: false,
+    ref: 'User'
+  },
   type: {
     type: String,
     enum: ['order', 'quote'],

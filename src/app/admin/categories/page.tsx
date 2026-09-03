@@ -4,16 +4,24 @@ import { Button } from '@/components/ui/button';
 import { Plus, Edit, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 
+import api from '@/lib/api';
+
 export default function AdminCategoriesPage() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // In real implementation, fetch from http://localhost:5000/api/categories
-    import('@/lib/catalog').then(module => {
-      setCategories(module.CATEGORIES);
-      setLoading(false);
-    });
+    const fetchCategories = async () => {
+      try {
+        const { data } = await api.get('/categories');
+        setCategories(data);
+      } catch (error) {
+        console.error('Failed to fetch categories', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCategories();
   }, []);
 
   if (loading) return <div>Loading categories...</div>;

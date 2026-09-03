@@ -192,26 +192,60 @@ export const PRODUCTS: Product[] = [
   }
 ];
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
 export async function getCategories() {
-  return CATEGORIES;
+  try {
+    const res = await fetch(`${API_URL}/categories`, { cache: 'no-store' });
+    if (!res.ok) return CATEGORIES;
+    const data = await res.json();
+    return data.map((c: any) => ({
+      ...c,
+      id: c._id || c.id,
+      heroImage: c.image,
+      shortDescription: c.description || c.shortDescription || '',
+      icon: c.icon || 'Layout'
+    }));
+  } catch (error) {
+    return CATEGORIES; // Fallback to mock data on error
+  }
 }
 
 export async function getCategoryBySlug(slug: string) {
-  return CATEGORIES.find(c => c.slug === slug);
+  const categories = await getCategories();
+  return categories.find((c: any) => c.slug === slug);
 }
 
 export async function getProductsByCategory(categorySlug: string) {
-  return PRODUCTS.filter(p => p.categorySlug === categorySlug);
+  const products = await getAllProducts();
+  return products.filter((p: any) => p.categorySlug === categorySlug || p.subcategorySlug === categorySlug);
 }
 
 export async function getProductBySlug(slug: string) {
-  return PRODUCTS.find(p => p.slug === slug);
+  const products = await getAllProducts();
+  return products.find((p: any) => p.slug === slug);
 }
 
 export async function getProductsByDivision(division: Division) {
-  return PRODUCTS.filter(p => p.division === division);
+  const products = await getAllProducts();
+  // Using the fallback mock division for now as we didn't migrate divisions to products
+  return products.filter((p: any) => p.division === division || p.division === undefined); 
 }
 
 export async function getAllProducts() {
-  return PRODUCTS;
+  try {
+    const res = await fetch(`${API_URL}/products`, { cache: 'no-store' });
+    if (!res.ok) return PRODUCTS;
+    const data = await res.json();
+    return data.map((p: any) => ({
+      ...p,
+      id: p._id || p.id,
+      description: p.fullDescription || p.description || '',
+      specs: p.specifications || p.specs || {},
+      pricing: p.pricing || { type: 'quote-only', currency: 'INR' },
+      inStock: p.stock !== 'Out of Stock'
+    }));
+  } catch (error) {
+    return PRODUCTS; // Fallback to mock data on error
+  }
 }
