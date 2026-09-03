@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getProductBySlug, getProductsByCategory } from '@/lib/catalog';
 import { PriceTag } from '@/components/ui/PriceTag';
 import { ProductCard } from '@/components/catalog/ProductCard';
+import { AddToCartButton } from '@/components/catalog/AddToCartButton';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator, BreadcrumbPage } from '@/components/ui/breadcrumb';
 import { ShoppingCart, FileText, CheckCircle2 } from 'lucide-react';
@@ -83,15 +84,7 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
                 </Link>
               </Button>
             ) : (
-              <div className="flex gap-4">
-                <div className="flex items-center border border-border rounded-md px-4 w-32 bg-surface">
-                  <span className="text-sm font-medium text-text-muted mr-4">Qty</span>
-                  <input type="number" defaultValue={1} min={1} className="w-full bg-transparent border-none outline-none text-ink font-semibold" />
-                </div>
-                <Button size="lg" className="flex-1 bg-signal-blue hover:bg-signal-blue-dark text-surface h-12">
-                  <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
-                </Button>
-              </div>
+              <AddToCartButton product={product} />
             )}
             
             <Button size="lg" variant="outline" className="w-full h-12 border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10" asChild>
