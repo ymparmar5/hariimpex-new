@@ -12,7 +12,7 @@ export default function AdminProductsPage() {
     // In real implementation, fetch from http://localhost:5000/api/products
     // For now, load from static catalog just to show the UI works until DB is populated
     import('@/lib/catalog').then(module => {
-      setProducts(module.products);
+      setProducts(module.PRODUCTS);
       setLoading(false);
     });
   }, []);

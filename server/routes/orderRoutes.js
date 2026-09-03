@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
+const { protect, admin } = require('../middleware/authMiddleware');
 
 // Get all orders (Admin)
-router.get('/', async (req, res) => {
+router.get('/', protect, admin, async (req, res) => {
   try {
     const orders = await Order.find({}).sort({ createdAt: -1 }).populate('items.productId');
     res.json(orders);
@@ -24,7 +25,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update order status (Admin)
-router.put('/:id/status', async (req, res) => {
+router.put('/:id/status', protect, admin, async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
     if (order) {

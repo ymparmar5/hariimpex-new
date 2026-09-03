@@ -11,7 +11,7 @@ export default function AdminCategoriesPage() {
   useEffect(() => {
     // In real implementation, fetch from http://localhost:5000/api/categories
     import('@/lib/catalog').then(module => {
-      setCategories(module.categories);
+      setCategories(module.CATEGORIES);
       setLoading(false);
     });
   }, []);
