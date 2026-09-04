@@ -98,7 +98,7 @@ export function HeroCarousel() {
                   dangerouslySetInnerHTML={{ __html: slide.title }}
                 />
                 
-                <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 font-medium drop-shadow-md">
+                <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 font-medium drop-shadow-md">
                   {slide.desc}
                 </p>
                 

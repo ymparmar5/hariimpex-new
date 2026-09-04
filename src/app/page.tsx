@@ -23,25 +23,25 @@ export default async function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
-            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/30 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors">
+            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/10 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-colors">
               <ShieldCheck className="h-10 w-10 text-signal-blue filter drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]" />
-              <h3 className="font-semibold text-surface">GST Registered</h3>
-              <p className="text-sm text-text-secondary">Verified B2B Supplier</p>
+              <h3 className="font-semibold text-white">GST Registered</h3>
+              <p className="text-sm text-slate-300">Verified B2B Supplier</p>
             </div>
-            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/30 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors">
+            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/10 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-colors">
               <BadgeCheck className="h-10 w-10 text-copper filter drop-shadow-[0_0_8px_rgba(255,109,0,0.5)]" />
-              <h3 className="font-semibold text-surface">Established 2019</h3>
-              <p className="text-sm text-text-secondary">Years of manufacturing excellence</p>
+              <h3 className="font-semibold text-white">Established 2019</h3>
+              <p className="text-sm text-slate-300">Years of manufacturing excellence</p>
             </div>
-            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/30 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors">
+            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/10 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-colors">
               <Wrench className="h-10 w-10 text-signal-blue filter drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]" />
-              <h3 className="font-semibold text-surface">In-House Manufacturing</h3>
-              <p className="text-sm text-text-secondary">10-person engineering team</p>
+              <h3 className="font-semibold text-white">In-House Manufacturing</h3>
+              <p className="text-sm text-slate-300">10-person engineering team</p>
             </div>
-            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/30 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors">
+            <div className="flex flex-col items-center md:items-start gap-3 p-4 rounded-2xl bg-surface-2/10 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-colors">
               <CheckCircle2 className="h-10 w-10 text-success filter drop-shadow-[0_0_8px_rgba(0,230,118,0.5)]" />
-              <h3 className="font-semibold text-surface">100% Quality Tested</h3>
-              <p className="text-sm text-text-secondary">Every unit tested before dispatch</p>
+              <h3 className="font-semibold text-white">100% Quality Tested</h3>
+              <p className="text-sm text-slate-300">Every unit tested before dispatch</p>
             </div>
           </div>
         </div>
@@ -85,15 +85,15 @@ export default async function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,255,0.1)_0%,transparent_50%)]" />
         
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10 text-center bg-surface-2/40 backdrop-blur-xl border border-white/10 rounded-3xl p-12 shadow-2xl">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-surface mb-6">Ready for a Custom B2B Order?</h2>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink mb-6">Ready for a Custom B2B Order?</h2>
           <p className="text-text-secondary max-w-2xl mx-auto mb-10 text-xl">
             Our engineering team can manufacture custom LED structural profiles and precision cooling blocks to your exact specifications.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-ink font-bold h-14 px-10 rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.2)]" render={<Link href="/request-quote" />}>
+            <Button size="lg" className="bg-signal-blue hover:bg-signal-blue-dark text-white font-bold h-14 px-10 rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.2)]" render={<Link href="/request-quote" />}>
               Request a Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-white/20 bg-transparent text-surface hover:bg-white/10 h-14 px-10 rounded-xl" render={<Link href="/contact" />}>
+            <Button size="lg" variant="outline" className="border-border bg-transparent text-ink hover:bg-surface-2 h-14 px-10 rounded-xl" render={<Link href="/contact" />}>
               Contact Sales
             </Button>
           </div>
