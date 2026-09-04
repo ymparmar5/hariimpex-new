@@ -28,8 +28,8 @@ export default function AboutPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <Breadcrumb className="mb-16">
           <BreadcrumbList>
-            <BreadcrumbItem><BreadcrumbLink href="/" className="text-text-secondary hover:text-white">Home</BreadcrumbLink></BreadcrumbItem>
-            <BreadcrumbSeparator className="text-white/20" />
+            <BreadcrumbItem><BreadcrumbLink href="/" className="text-text-secondary hover:text-ink">Home</BreadcrumbLink></BreadcrumbItem>
+            <BreadcrumbSeparator className="text-text-secondary/20" />
             <BreadcrumbItem><BreadcrumbPage className="text-signal-blue">About Us</BreadcrumbPage></BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>

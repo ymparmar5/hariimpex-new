@@ -14,15 +14,15 @@ export default function ContactPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 relative z-10 w-full">
         <Breadcrumb className="mb-12">
           <BreadcrumbList>
-            <BreadcrumbItem><BreadcrumbLink href="/" className="text-text-secondary hover:text-white">Home</BreadcrumbLink></BreadcrumbItem>
-            <BreadcrumbSeparator className="text-white/20" />
+            <BreadcrumbItem><BreadcrumbLink href="/" className="text-text-secondary hover:text-ink">Home</BreadcrumbLink></BreadcrumbItem>
+            <BreadcrumbSeparator className="text-text-secondary/20" />
             <BreadcrumbItem><BreadcrumbPage className="text-signal-blue">Contact Us</BreadcrumbPage></BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
 
         <div className="mb-16 text-center md:text-left">
           <h1 className="font-heading text-5xl md:text-6xl font-bold text-ink mb-6 drop-shadow-md">
-            Let's build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-signal-blue to-white">incredible.</span>
+            Let's build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-signal-blue to-signal-blue-dark">incredible.</span>
           </h1>
           <p className="text-xl text-text-secondary max-w-2xl font-medium">Have a question or need to discuss a custom B2B order? Reach out to our engineering and sales team directly.</p>
         </div>
@@ -31,10 +31,10 @@ export default function ContactPage() {
           
           {/* Left Pane - Cards */}
           <div className="flex flex-col gap-8">
-            <h2 className="font-heading text-3xl font-bold text-white mb-2">Our Locations</h2>
+            <h2 className="font-heading text-3xl font-bold text-ink mb-2">Our Locations</h2>
             
-            <div className="bg-surface-2/40 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:border-signal-blue/30 transition-all duration-300 shadow-xl group">
-              <h3 className="font-bold text-xl text-white mb-6 flex items-center gap-3">
+            <div className="bg-surface-2/40 backdrop-blur-xl p-8 rounded-3xl border border-border hover:border-signal-blue/30 transition-all duration-300 shadow-sm group">
+              <h3 className="font-bold text-xl text-ink mb-6 flex items-center gap-3">
                 <div className="p-2 bg-signal-blue/10 rounded-lg group-hover:bg-signal-blue/20 transition-colors">
                   <MapPin className="text-signal-blue h-6 w-6" />
                 </div>
@@ -59,11 +59,11 @@ export default function ContactPage() {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-               <div className="bg-surface-2/40 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:border-signal-blue/30 transition-all duration-300 shadow-xl group">
+               <div className="bg-surface-2/40 backdrop-blur-xl p-8 rounded-3xl border border-border hover:border-signal-blue/30 transition-all duration-300 shadow-sm group">
                   <div className="p-2 bg-signal-blue/10 w-fit rounded-lg mb-6 group-hover:bg-signal-blue/20 transition-colors">
                     <Phone className="h-6 w-6 text-signal-blue" />
                   </div>
-                  <h4 className="font-bold text-white mb-2 text-lg">Direct Contact</h4>
+                  <h4 className="font-bold text-ink mb-2 text-lg">Direct Contact</h4>
                   <div className="flex flex-col gap-2 text-text-secondary">
                     <a href="tel:+919765618860" className="hover:text-signal-blue transition-colors text-lg font-medium">+91 9765618860</a>
                     <a href="mailto:hariimpexonline@gmail.com" className="hover:text-signal-blue transition-colors">hariimpexonline@gmail.com</a>
@@ -84,28 +84,28 @@ export default function ContactPage() {
 
           {/* Right Pane - Form */}
           <div className="relative">
-            <div className="bg-surface-2/60 backdrop-blur-2xl rounded-3xl border border-white/10 p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] sticky top-24 relative overflow-hidden">
+            <div className="bg-surface p-10 rounded-3xl border border-border shadow-md sticky top-24 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-signal-blue/10 rounded-full blur-[80px] pointer-events-none" />
               
-              <h2 className="font-heading text-3xl font-bold text-white mb-8 relative z-10">Send an Enquiry</h2>
+              <h2 className="font-heading text-3xl font-bold text-ink mb-8 relative z-10">Send an Enquiry</h2>
               <form className="space-y-6 relative z-10">
                 <div className="space-y-3">
                   <Label htmlFor="name" className="text-text-secondary text-sm uppercase tracking-wider font-semibold">Name</Label>
-                  <Input id="name" placeholder="John Doe" className="h-14 bg-ink/50 border-white/10 text-white rounded-xl focus:border-signal-blue focus:ring-1 focus:ring-signal-blue transition-all" />
+                  <Input id="name" placeholder="John Doe" className="h-14 bg-surface-2 border-border text-ink rounded-xl focus:border-signal-blue focus:ring-1 focus:ring-signal-blue transition-all" />
                 </div>
                 <div className="space-y-3">
                   <Label htmlFor="phone" className="text-text-secondary text-sm uppercase tracking-wider font-semibold">Phone Number</Label>
-                  <Input id="phone" placeholder="+91 xxxxx xxxxx" className="h-14 bg-ink/50 border-white/10 text-white rounded-xl focus:border-signal-blue focus:ring-1 focus:ring-signal-blue transition-all" />
+                  <Input id="phone" placeholder="+91 xxxxx xxxxx" className="h-14 bg-surface-2 border-border text-ink rounded-xl focus:border-signal-blue focus:ring-1 focus:ring-signal-blue transition-all" />
                 </div>
                 <div className="space-y-3">
                   <Label htmlFor="email" className="text-text-secondary text-sm uppercase tracking-wider font-semibold">Email Address</Label>
-                  <Input id="email" type="email" placeholder="john@company.com" className="h-14 bg-ink/50 border-white/10 text-white rounded-xl focus:border-signal-blue focus:ring-1 focus:ring-signal-blue transition-all" />
+                  <Input id="email" type="email" placeholder="john@company.com" className="h-14 bg-surface-2 border-border text-ink rounded-xl focus:border-signal-blue focus:ring-1 focus:ring-signal-blue transition-all" />
                 </div>
                 <div className="space-y-3">
                   <Label htmlFor="message" className="text-text-secondary text-sm uppercase tracking-wider font-semibold">Message</Label>
                   <textarea 
                     id="message" 
-                    className="flex min-h-[160px] w-full rounded-xl border border-white/10 bg-ink/50 px-4 py-4 text-white shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:border-signal-blue focus-visible:ring-signal-blue transition-all resize-none"
+                    className="flex min-h-[160px] w-full rounded-xl border border-border bg-surface-2 px-4 py-4 text-ink shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:border-signal-blue focus-visible:ring-signal-blue transition-all resize-none"
                     placeholder="Tell us about your custom requirements..."
                   />
                 </div>

@@ -1,7 +1,7 @@
 import { getAllProducts, getCategories } from '@/lib/catalog';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { Button } from '@/components/ui/button';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator, BreadcrumbPage } from '@/components/ui/breadcrumb';
 
 export default async function ProductsPage() {
   const products = await getAllProducts();
@@ -12,11 +12,11 @@ export default async function ProductsPage() {
       <Breadcrumb className="mb-8">
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <BreadcrumbLink href="/" className="text-text-secondary hover:text-ink">Home</BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <BreadcrumbSeparator className="text-text-secondary/20" />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            <BreadcrumbPage className="text-signal-blue">Products</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
